@@ -1,0 +1,6 @@
+#!/usr/bin/ruby
+
+def first_name
+	name = "(votre nom ici)"
+	print "Bonjour " + name + " !"
+end

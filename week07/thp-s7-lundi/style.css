@@ -1,0 +1,49 @@
+*:hover {
+	border: 2px solid black;
+}
+
+body {
+	background-color: #424242;
+}
+
+a {
+	color: red;
+}
+
+p, h1 {
+	color: #fff
+}
+
+h1	{
+	text-align: center;
+}
+
+nav {
+	font-weight: bold;
+	display: flex;
+	justify-content: space-around;
+}
+
+footer {
+	display: flex;
+	justify-content: space-around;
+}
+
+.flexleft {
+	justify-content: flex-start;
+}
+
+.flexcenter {
+	display: flex;
+	justify-content: center;
+}
+
+.flexright {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.article {
+	text-align: right;
+	display: flex
+}

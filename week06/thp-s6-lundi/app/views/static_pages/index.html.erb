@@ -1,0 +1,10 @@
+<h2>Hello there, <%= session[:name] %></h2>
+<h1>Welcome to <strong>The Rotary <em>Engine</em> Club !</strong></h1>
+<% if session[:name] == nil %>
+  <form action="/sessions" method="get">
+    <button type="submit" class="btn btn-primary">Login / Signup</button>
+  </form>
+<% else %>
+  <h4>long time no see !</h4>
+  <h3><a href="/users">Click here</a> to see all the club's adherants</h3>
+<% end %>

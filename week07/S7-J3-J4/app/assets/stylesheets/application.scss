@@ -1,0 +1,32 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require assets/css/bootstrap.min
+ *= require assets/css/font-awesome.min
+ *= require assets/css/bootstrap-theme
+ *= require assets/css/main
+
+ */
+
+/*
+ <link rel="shortcut icon" href="/assets/images/gt_favicon.png">
+
+ <link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+ <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+ <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+
+ <!-- Custom styles for our template -->
+ <link rel="stylesheet" href="assets/css/bootstrap-theme.css" media="screen" >
+ <link rel="stylesheet" href="assets/css/main.css">
+*/

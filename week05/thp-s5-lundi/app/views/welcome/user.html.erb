@@ -1,0 +1,20 @@
+<h1><strong>Welcome, 
+	<%=if (@username == nil)
+			"Visitor"
+		else
+			@username.capitalize
+		end %></strong></h1>
+<h2>Here's the list of all gossips :</h2>
+<div class="container">
+	<div class="row">
+		<% @gossips.each do | g | %>
+			<div class="card" style="width: 18rem;">
+				<div class="card-body">
+		    		<h5 class="card-title"><%= g[:author] %></h5>
+		    		<p class="card-text"><%= g[:content] %></p>
+		    		<a href="#" class="card-link">Card link</a>
+		  		</div>
+			</div>
+		<% end %>
+	</div>
+</div>

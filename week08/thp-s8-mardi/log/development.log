@@ -1,0 +1,828 @@
+  [1m[35m (294.3ms)[0m  [1m[35mCREATE DATABASE "todolist-app_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (234.8ms)[0m  [1m[35mCREATE DATABASE "todolist-app_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (5.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(34377518426153490)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to DeviseCreateUsers (20181115104424)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (5.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20181115104424_devise_create_users.rb:5
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  ↳ db/migrate/20181115104424_devise_create_users.rb:39
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+  ↳ db/migrate/20181115104424_devise_create_users.rb:40
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181115104424"]]
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateCategories (20181115131426)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "categories" ("id" bigserial primary key, "title" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20181115131426_create_categories.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181115131426"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateTasks (20181116110123)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "tasks" ("id" bigserial primary key, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "title" character varying, "status" boolean DEFAULT FALSE, "deadline" timestamp, "category_id" bigint)[0m
+  ↳ db/migrate/20181116110123_create_tasks.rb:3
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX  "index_tasks_on_category_id" ON "tasks"  ("category_id")[0m
+  ↳ db/migrate/20181116110123_create_tasks.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181116110123"]]
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to AddImagetoTask (20181116110124)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "tasks" ADD "image" character varying[0m
+  ↳ db/migrate/20181116110124_add_imageto_task.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181116110124"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-11-20 22:11:57.485549"], ["updated_at", "2018-11-20 22:11:57.485549"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(34377518426153490)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mCategory Create (0.5ms)[0m  [1m[32mINSERT INTO "categories" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Fiction narrative"], ["created_at", "2018-11-20 22:12:00.688583"], ["updated_at", "2018-11-20 22:12:00.688583"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:17
+  [1m[36mTask Create (0.5ms)[0m  [1m[32mINSERT INTO "tasks" ("created_at", "updated_at", "title", "deadline", "category_id", "image") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2018-11-20 22:12:00.707287"], ["updated_at", "2018-11-20 22:12:00.707287"], ["title", "The Moving Toyshop"], ["deadline", "2018-12-13 00:00:00"], ["category_id", 1], ["image", "https://robohash.org/harumeosiusto.png?size=300x300&set=set1"]]
+  ↳ db/seeds.rb:17
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:17
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:17
+  [1m[36mTask Create (0.3ms)[0m  [1m[32mINSERT INTO "tasks" ("created_at", "updated_at", "title", "deadline", "category_id", "image") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2018-11-20 22:12:00.710394"], ["updated_at", "2018-11-20 22:12:00.710394"], ["title", "The Road Less Traveled"], ["deadline", "2018-12-03 00:00:00"], ["category_id", 1], ["image", "https://robohash.org/adipiscivoluptateseos.png?size=300x300&set=set1"]]
+  ↳ db/seeds.rb:17
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:17
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:17
+  [1m[36mTask Create (0.2ms)[0m  [1m[32mINSERT INTO "tasks" ("created_at", "updated_at", "title", "deadline", "category_id", "image") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2018-11-20 22:12:00.712404"], ["updated_at", "2018-11-20 22:12:00.712404"], ["title", "Beyond the Mexique Bay"], ["deadline", "2018-12-13 00:00:00"], ["category_id", 1], ["image", "https://robohash.org/quiafugiatquisquam.png?size=300x300&set=set1"]]
+  ↳ db/seeds.rb:17
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:17
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mCategory Create (0.2ms)[0m  [1m[32mINSERT INTO "categories" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Narrative nonfiction"], ["created_at", "2018-11-20 22:12:00.714196"], ["updated_at", "2018-11-20 22:12:00.714196"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:17
+  [1m[36mTask Create (0.2ms)[0m  [1m[32mINSERT INTO "tasks" ("created_at", "updated_at", "title", "deadline", "category_id", "image") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2018-11-20 22:12:00.715708"], ["updated_at", "2018-11-20 22:12:00.715708"], ["title", "Jesting Pilate"], ["deadline", "2018-11-28 00:00:00"], ["category_id", 2], ["image", "https://robohash.org/ullamlaboredignissimos.png?size=300x300&set=set1"]]
+  ↳ db/seeds.rb:17
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:17
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:17
+  [1m[36mTask Create (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("created_at", "updated_at", "title", "deadline", "category_id", "image") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2018-11-20 22:12:00.717061"], ["updated_at", "2018-11-20 22:12:00.717061"], ["title", "Consider Phlebas"], ["deadline", "2018-12-07 00:00:00"], ["category_id", 2], ["image", "https://robohash.org/earumaspernaturasperiores.png?size=300x300&set=set1"]]
+  ↳ db/seeds.rb:17
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:17
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:17
+  [1m[36mTask Create (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("created_at", "updated_at", "title", "deadline", "category_id", "image") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2018-11-20 22:12:00.718385"], ["updated_at", "2018-11-20 22:12:00.718385"], ["title", "Postern of Fate"], ["deadline", "2018-12-08 00:00:00"], ["category_id", 2], ["image", "https://robohash.org/fugitautaut.png?size=300x300&set=set1"]]
+  ↳ db/seeds.rb:17
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:17
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mCategory Create (0.1ms)[0m  [1m[32mINSERT INTO "categories" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Science fiction"], ["created_at", "2018-11-20 22:12:00.719582"], ["updated_at", "2018-11-20 22:12:00.719582"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:17
+  [1m[36mTask Create (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("created_at", "updated_at", "title", "deadline", "category_id", "image") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2018-11-20 22:12:00.720800"], ["updated_at", "2018-11-20 22:12:00.720800"], ["title", "Brandy of the Damned"], ["deadline", "2018-11-22 00:00:00"], ["category_id", 3], ["image", "https://robohash.org/beataenihildelectus.png?size=300x300&set=set1"]]
+  ↳ db/seeds.rb:17
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:17
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:17
+  [1m[36mTask Create (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("created_at", "updated_at", "title", "deadline", "category_id", "image") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2018-11-20 22:12:00.722123"], ["updated_at", "2018-11-20 22:12:00.722123"], ["title", "The Other Side of Silence"], ["deadline", "2018-12-07 00:00:00"], ["category_id", 3], ["image", "https://robohash.org/etutsuscipit.png?size=300x300&set=set1"]]
+  ↳ db/seeds.rb:17
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:17
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:17
+  [1m[36mTask Create (0.1ms)[0m  [1m[32mINSERT INTO "tasks" ("created_at", "updated_at", "title", "deadline", "category_id", "image") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2018-11-20 22:12:00.723462"], ["updated_at", "2018-11-20 22:12:00.723462"], ["title", "A Darkling Plain"], ["deadline", "2018-12-08 00:00:00"], ["category_id", 3], ["image", "https://robohash.org/voluptassuntin.png?size=300x300&set=set1"]]
+  ↳ db/seeds.rb:17
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:17
+Started GET "/" for 127.0.0.1 at 2018-11-20 23:12:22 +0100
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/mac/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/_task_form.html.erb:18
+  Rendered layouts/_task_form.html.erb (13.7ms)
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 1]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 2]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 3]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/home/index.html.erb:25
+  Rendered home/index.html.erb within layouts/application (35.3ms)
+  Rendered layouts/_navbar.html.erb (2.5ms)
+  Rendered layouts/_flash.html.erb (0.4ms)
+Completed 200 OK in 4148ms (Views: 4133.8ms | ActiveRecord: 7.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-20 23:13:14 +0100
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/mac/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/_task_form.html.erb:18
+  Rendered layouts/_task_form.html.erb (8.3ms)
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 1]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 2]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 3]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/home/index.html.erb:25
+  Rendered home/index.html.erb within layouts/application (26.4ms)
+  Rendered layouts/_navbar.html.erb (2.0ms)
+  Rendered layouts/_flash.html.erb (0.2ms)
+Completed 200 OK in 159ms (Views: 145.8ms | ActiveRecord: 7.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-21 00:32:11 +0100
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/mac/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/_task_form.html.erb:18
+  Rendered layouts/_task_form.html.erb (9.3ms)
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 1]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 2]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 3]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/home/index.html.erb:25
+  Rendered home/index.html.erb within layouts/application (36.0ms)
+  Rendered layouts/_navbar.html.erb (2.1ms)
+  Rendered layouts/_flash.html.erb (0.2ms)
+Completed 200 OK in 200ms (Views: 178.5ms | ActiveRecord: 7.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-21 00:32:14 +0100
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/_task_form.html.erb:18
+  Rendered layouts/_task_form.html.erb (2.6ms)
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 1]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 2]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 3]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/home/index.html.erb:25
+  Rendered home/index.html.erb within layouts/application (10.1ms)
+  Rendered layouts/_navbar.html.erb (0.7ms)
+  Rendered layouts/_flash.html.erb (0.2ms)
+Completed 200 OK in 28ms (Views: 25.8ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-21 00:32:14 +0100
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/_task_form.html.erb:18
+  Rendered layouts/_task_form.html.erb (2.9ms)
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 1]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 2]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 3]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/home/index.html.erb:25
+  Rendered home/index.html.erb within layouts/application (8.9ms)
+  Rendered layouts/_navbar.html.erb (0.6ms)
+  Rendered layouts/_flash.html.erb (0.2ms)
+Completed 200 OK in 42ms (Views: 39.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-21 00:38:43 +0100
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/_task_form.html.erb:18
+  Rendered layouts/_task_form.html.erb (2.6ms)
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 1]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 2]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 3]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/home/index.html.erb:25
+  Rendered home/index.html.erb within layouts/application (8.9ms)
+  Rendered layouts/_navbar.html.erb (0.7ms)
+  Rendered layouts/_flash.html.erb (0.2ms)
+Completed 200 OK in 30ms (Views: 27.4ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-21 00:38:44 +0100
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/_task_form.html.erb:18
+  Rendered layouts/_task_form.html.erb (2.1ms)
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 1]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 2]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 3]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/home/index.html.erb:25
+  Rendered home/index.html.erb within layouts/application (8.2ms)
+  Rendered layouts/_navbar.html.erb (0.9ms)
+  Rendered layouts/_flash.html.erb (0.2ms)
+Completed 200 OK in 33ms (Views: 30.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-21 00:38:44 +0100
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/_task_form.html.erb:18
+  Rendered layouts/_task_form.html.erb (2.5ms)
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 1]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 2]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 3]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/home/index.html.erb:25
+  Rendered home/index.html.erb within layouts/application (11.8ms)
+  Rendered layouts/_navbar.html.erb (0.7ms)
+  Rendered layouts/_flash.html.erb (0.3ms)
+Completed 200 OK in 39ms (Views: 36.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-21 00:39:12 +0100
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/_task_form.html.erb:18
+  Rendered layouts/_task_form.html.erb (2.4ms)
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 1]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 2]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 3]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/home/index.html.erb:25
+  Rendered home/index.html.erb within layouts/application (10.7ms)
+  Rendered layouts/_navbar.html.erb (0.7ms)
+  Rendered layouts/_flash.html.erb (0.2ms)
+Completed 200 OK in 41ms (Views: 38.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-21 00:39:13 +0100
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/_task_form.html.erb:18
+  Rendered layouts/_task_form.html.erb (2.9ms)
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 1]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 2]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 3]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/home/index.html.erb:25
+  Rendered home/index.html.erb within layouts/application (8.1ms)
+  Rendered layouts/_navbar.html.erb (0.6ms)
+  Rendered layouts/_flash.html.erb (0.2ms)
+Completed 200 OK in 40ms (Views: 37.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-21 00:39:13 +0100
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/_task_form.html.erb:18
+  Rendered layouts/_task_form.html.erb (3.3ms)
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 1]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 2]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 3]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/home/index.html.erb:25
+  Rendered home/index.html.erb within layouts/application (10.6ms)
+  Rendered layouts/_navbar.html.erb (0.7ms)
+  Rendered layouts/_flash.html.erb (0.2ms)
+Completed 200 OK in 30ms (Views: 27.9ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-21 00:40:00 +0100
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/_task_form.html.erb:18
+  Rendered layouts/_task_form.html.erb (2.8ms)
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 1]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 2]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 3]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/home/index.html.erb:25
+  Rendered home/index.html.erb within layouts/application (9.8ms)
+  Rendered layouts/_navbar.html.erb (0.7ms)
+  Rendered layouts/_flash.html.erb (0.2ms)
+Completed 200 OK in 29ms (Views: 26.8ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-21 00:40:01 +0100
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/_task_form.html.erb:18
+  Rendered layouts/_task_form.html.erb (1.6ms)
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 1]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 2]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 3]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/home/index.html.erb:25
+  Rendered home/index.html.erb within layouts/application (5.9ms)
+  Rendered layouts/_navbar.html.erb (0.9ms)
+  Rendered layouts/_flash.html.erb (0.3ms)
+Completed 200 OK in 24ms (Views: 22.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-21 00:40:01 +0100
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/_task_form.html.erb:18
+  Rendered layouts/_task_form.html.erb (1.8ms)
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 1]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 2]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 3]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/home/index.html.erb:25
+  Rendered home/index.html.erb within layouts/application (6.2ms)
+  Rendered layouts/_navbar.html.erb (0.7ms)
+  Rendered layouts/_flash.html.erb (0.2ms)
+Completed 200 OK in 30ms (Views: 28.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-21 00:40:02 +0100
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/_task_form.html.erb:18
+  Rendered layouts/_task_form.html.erb (1.4ms)
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 1]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 2]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 3]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/home/index.html.erb:25
+  Rendered home/index.html.erb within layouts/application (5.8ms)
+  Rendered layouts/_navbar.html.erb (0.9ms)
+  Rendered layouts/_flash.html.erb (0.2ms)
+Completed 200 OK in 26ms (Views: 24.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-21 00:41:33 +0100
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/_task_form.html.erb:18
+  Rendered layouts/_task_form.html.erb (1.6ms)
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 1]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 2]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 3]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/home/index.html.erb:25
+  Rendered home/index.html.erb within layouts/application (6.2ms)
+  Rendered layouts/_navbar.html.erb (0.8ms)
+  Rendered layouts/_flash.html.erb (0.2ms)
+Completed 200 OK in 25ms (Views: 23.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-21 00:41:55 +0100
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/_task_form.html.erb:18
+  Rendered layouts/_task_form.html.erb (2.6ms)
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 1]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 2]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 3]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/home/index.html.erb:25
+  Rendered home/index.html.erb within layouts/application (8.7ms)
+  Rendered layouts/_navbar.html.erb (0.7ms)
+  Rendered layouts/_flash.html.erb (0.2ms)
+Completed 200 OK in 28ms (Views: 25.9ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-21 00:41:55 +0100
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/_task_form.html.erb:18
+  Rendered layouts/_task_form.html.erb (2.0ms)
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 1]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 2]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 3]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/home/index.html.erb:25
+  Rendered home/index.html.erb within layouts/application (7.6ms)
+  Rendered layouts/_navbar.html.erb (0.7ms)
+  Rendered layouts/_flash.html.erb (0.2ms)
+Completed 200 OK in 28ms (Views: 25.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-21 00:41:56 +0100
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/_task_form.html.erb:18
+  Rendered layouts/_task_form.html.erb (2.3ms)
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 1]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 2]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 3]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/home/index.html.erb:25
+  Rendered home/index.html.erb within layouts/application (9.0ms)
+  Rendered layouts/_navbar.html.erb (0.7ms)
+  Rendered layouts/_flash.html.erb (0.2ms)
+Completed 200 OK in 33ms (Views: 31.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-21 00:42:02 +0100
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/_task_form.html.erb:18
+  Rendered layouts/_task_form.html.erb (2.3ms)
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 1]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 2]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 3]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/home/index.html.erb:25
+  Rendered home/index.html.erb within layouts/application (7.3ms)
+  Rendered layouts/_navbar.html.erb (1.1ms)
+  Rendered layouts/_flash.html.erb (0.2ms)
+Completed 200 OK in 26ms (Views: 23.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-21 00:42:02 +0100
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/_task_form.html.erb:18
+  Rendered layouts/_task_form.html.erb (1.8ms)
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 1]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 2]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 3]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/home/index.html.erb:25
+  Rendered home/index.html.erb within layouts/application (6.7ms)
+  Rendered layouts/_navbar.html.erb (0.8ms)
+  Rendered layouts/_flash.html.erb (0.3ms)
+Completed 200 OK in 27ms (Views: 25.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-21 00:42:02 +0100
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/_task_form.html.erb:18
+  Rendered layouts/_task_form.html.erb (2.9ms)
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 1]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 2]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 3]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/home/index.html.erb:25
+  Rendered home/index.html.erb within layouts/application (8.2ms)
+  Rendered layouts/_navbar.html.erb (0.8ms)
+  Rendered layouts/_flash.html.erb (0.3ms)
+Completed 200 OK in 28ms (Views: 25.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-21 00:43:20 +0100
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/_task_form.html.erb:18
+  Rendered layouts/_task_form.html.erb (2.4ms)
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 1]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 2]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 3]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/home/index.html.erb:25
+  Rendered home/index.html.erb within layouts/application (8.5ms)
+  Rendered layouts/_navbar.html.erb (0.7ms)
+  Rendered layouts/_flash.html.erb (0.2ms)
+Completed 200 OK in 32ms (Views: 28.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-21 00:45:13 +0100
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/_task_form.html.erb:18
+  Rendered layouts/_task_form.html.erb (1.7ms)
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 1]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 2]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 3]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/home/index.html.erb:25
+  Rendered home/index.html.erb within layouts/application (6.1ms)
+  Rendered layouts/_navbar.html.erb (0.6ms)
+  Rendered layouts/_flash.html.erb (0.2ms)
+Completed 200 OK in 25ms (Views: 23.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-21 00:45:32 +0100
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/_task_form.html.erb:18
+  Rendered layouts/_task_form.html.erb (2.3ms)
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 1]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 2]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 3]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/home/index.html.erb:25
+  Rendered home/index.html.erb within layouts/application (9.7ms)
+  Rendered layouts/_navbar.html.erb (0.8ms)
+  Rendered layouts/_flash.html.erb (0.2ms)
+Completed 200 OK in 29ms (Views: 26.6ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-21 00:46:38 +0100
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/_task_form.html.erb:18
+  Rendered layouts/_task_form.html.erb (1.6ms)
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 1]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 2]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 3]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/home/index.html.erb:25
+  Rendered home/index.html.erb within layouts/application (7.7ms)
+  Rendered layouts/_navbar.html.erb (0.6ms)
+  Rendered layouts/_flash.html.erb (0.2ms)
+Completed 200 OK in 26ms (Views: 24.0ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-21 00:47:39 +0100
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/_task_form.html.erb:18
+  Rendered layouts/_task_form.html.erb (2.4ms)
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 1]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 2]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 3]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/home/index.html.erb:25
+  Rendered home/index.html.erb within layouts/application (7.7ms)
+  Rendered layouts/_navbar.html.erb (0.6ms)
+  Rendered layouts/_flash.html.erb (0.2ms)
+Completed 200 OK in 27ms (Views: 25.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-21 00:50:50 +0100
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/_task_form.html.erb:18
+  Rendered layouts/_task_form.html.erb (2.5ms)
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 1]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 2]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 3]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/home/index.html.erb:25
+  Rendered home/index.html.erb within layouts/application (8.0ms)
+  Rendered layouts/_navbar.html.erb (0.7ms)
+  Rendered layouts/_flash.html.erb (0.2ms)
+Completed 200 OK in 32ms (Views: 30.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-21 00:51:38 +0100
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/_task_form.html.erb:18
+  Rendered layouts/_task_form.html.erb (1.8ms)
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 1]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 2]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 3]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/home/index.html.erb:25
+  Rendered home/index.html.erb within layouts/application (6.4ms)
+  Rendered layouts/_navbar.html.erb (0.6ms)
+  Rendered layouts/_flash.html.erb (0.2ms)
+Completed 200 OK in 25ms (Views: 23.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-21 00:54:38 +0100
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/_task_form.html.erb:18
+  Rendered layouts/_task_form.html.erb (2.6ms)
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 1]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 2]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 3]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/home/index.html.erb:25
+  Rendered home/index.html.erb within layouts/application (9.6ms)
+  Rendered layouts/_navbar.html.erb (0.6ms)
+  Rendered layouts/_flash.html.erb (0.2ms)
+Completed 200 OK in 30ms (Views: 27.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-21 00:55:14 +0100
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/_task_form.html.erb:18
+  Rendered layouts/_task_form.html.erb (3.8ms)
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 1]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 2]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 3]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/home/index.html.erb:25
+  Rendered home/index.html.erb within layouts/application (10.9ms)
+  Rendered layouts/_navbar.html.erb (0.7ms)
+  Rendered layouts/_flash.html.erb (0.2ms)
+Completed 200 OK in 33ms (Views: 30.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-21 00:55:30 +0100
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/_task_form.html.erb:18
+  Rendered layouts/_task_form.html.erb (2.1ms)
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 1]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 2]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 3]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/home/index.html.erb:25
+  Rendered home/index.html.erb within layouts/application (6.9ms)
+  Rendered layouts/_navbar.html.erb (0.7ms)
+  Rendered layouts/_flash.html.erb (0.2ms)
+Completed 200 OK in 31ms (Views: 29.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-21 00:55:41 +0100
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/_task_form.html.erb:18
+  Rendered layouts/_task_form.html.erb (2.2ms)
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 1]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 2]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 3]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/home/index.html.erb:25
+  Rendered home/index.html.erb within layouts/application (8.6ms)
+  Rendered layouts/_navbar.html.erb (0.6ms)
+  Rendered layouts/_flash.html.erb (0.2ms)
+Completed 200 OK in 29ms (Views: 25.7ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-21 02:59:01 +0100
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/_task_form.html.erb:18
+  Rendered layouts/_task_form.html.erb (3.5ms)
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 1]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 2]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."category_id" = $1[0m  [["category_id", 3]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/home/index.html.erb:25
+  Rendered home/index.html.erb within layouts/application (9.7ms)
+  Rendered layouts/_navbar.html.erb (0.7ms)
+  Rendered layouts/_flash.html.erb (0.2ms)
+Completed 200 OK in 29ms (Views: 26.2ms | ActiveRecord: 1.5ms)
+
+

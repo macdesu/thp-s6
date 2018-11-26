@@ -1,0 +1,10 @@
+<form action="/home/search" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="search" name="name">
+  <input type="submit">
+  <ul>
+    <% @names.each do | name | %>
+      <li><%= name.currency_name %>: $<%= name.currency_price %></li>
+    <% end %>
+  </ul>
+</form>

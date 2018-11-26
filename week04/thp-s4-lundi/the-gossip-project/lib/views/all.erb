@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>All Gossips</title>
+</head>
+
+<body>
+	<style type="text/css">
+    body, a {
+     	background-color: #424242;
+      color: white;
+    }
+	</style>
+
+  <h1>All Gossips :</h1>
+  <% gossips.each do |gossip| %>
+    <p>
+      <%= gossip.author %><br/>
+      <%= gossip.content %>
+    </p>
+  <% end %>
+  <a href="/">CLICK HERE TO GO BACK TO INDEX</a>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<h2>Here's the list of all users :</h2>
+<div class="container">
+  <div class="row">
+    <% @all_users.each do | user | %>
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title"><%= user[:first_name] %></h5>
+            <p class="card-text"><%= user[:last_name] %></p>
+            <p class="card-text"><%= user[:email] %></p>
+            <!--<a href="#" class="card-link">Card link</a>-->
+          </div>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+<h1>Search for a movie</h1>
+<form action="/" method="post">
+  <div class="form-group">
+    <!-- <label for="formGroupExampleInput">Example label</label> -->
+    <input name="movie" type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+  </div>
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <button type="submit" class="btn btn-primary">Search</button>
+</form>

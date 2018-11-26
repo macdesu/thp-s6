@@ -1,0 +1,4 @@
+##COMMENT se servir du bot twitter ?
+###Indications et marche à suivre pour integrer le programme :
+* 1/ Se bot utilise des information sensibles qui ne peuvent pas être partagé sur github, dans un fichier caché .env
+---> comment regler ca ?

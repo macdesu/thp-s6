@@ -1,0 +1,9 @@
+<h1>Create a gossip !</h1>
+<form action="/gossips/new" method="post">
+  <div class="form-group">
+    <label for="formGroupExampleInput">Enter your gossip</label>
+    <input name="content" type="text" class="form-control" id="formGroupExampleInput" placeholder="Say something useless to the world">
+    <small id="emailHelp" class="form-text text-muted">As you already know, this will stay here <strong>FOREVER</strong></small>
+  <button type="submit" class="btn btn-primary">Gossip</button>
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+</form>

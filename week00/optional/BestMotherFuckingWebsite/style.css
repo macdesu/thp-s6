@@ -1,0 +1,73 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+html {
+	background-color:#fefefe;
+}
+
+body {
+	font-family:Open Sans,Arial;
+	color:#454545;
+	font-size:16px;
+	margin:2em auto;
+	max-width:800px;
+	padding:1em;
+	line-height:1.4;
+	text-align: justify;
+}
+
+a {
+    color: #07a;
+}
+
+a:visited {
+	color:#941352
+}
+
+div.cat p {
+	float: left;
+	width: 60%;
+}
+
+div.cat img {
+	float: left;
+	width: 40%;
+}
+
+blockquote {
+    color: #456;
+    margin-left: 0;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+blockquote p {
+    float: left;
+    margin-left: 1rem;
+    padding-top: 1rem;
+}
+
+blockquote author {
+    display: block;
+    clear: both;
+    font-size: .6em;
+    margin-left: 2.4rem;
+    font-style: oblique;
+}
+
+.smalltxt {
+	font-size: 0.7em
+}
+
+.kopimi {
+	height: 2em;
+}
+
+.mfw {
+	color: #16a085;
+}
+
+.wrong {
+	color: #c0392b;
+	font-weight: 600;
+	text-decoration: underline;
+}

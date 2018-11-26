@@ -1,0 +1,7 @@
+SELECT * FROM albums;
+SELECT * FROM albums WHERE Title LIKE '%Great%';
+SELECT Count(*) FROM albums;
+DELETE FROM albums WHERE Title LIKE '%music%';
+SELECT * FROM albums WHERE ArtistId=1;
+SELECT name FROM tracks WHERE AlbumId=1 OR AlbumId=4;
+SELECT name FROM tracks WHERE AlbumId=4;

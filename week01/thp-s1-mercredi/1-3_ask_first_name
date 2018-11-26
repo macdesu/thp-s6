@@ -1,0 +1,10 @@
+#!/usr/bin/ruby
+
+def ask_first_name
+	print "Entrez votre nom\n> "
+	say_hello(gets.chomp)
+end
+
+def say_hello(first_name)
+	print "Bonjour " + first_name + " !"
+end

@@ -1,0 +1,10 @@
+<h2>Hello there, <%= session[:name] %></h2>
+<h3>Welcome to</h3>
+<h1><strong>THE GOSSIP PROJECT</strong></h1>
+<% unless session[:name] != nil %>
+  <form action="/registration/new" method="get">
+    <button type="submit" class="btn btn-primary">Login / Signup</button>
+  </form>
+<% else %>
+  <h4>Tell us going on, <a href="/gossips/new">create a new gossip !</a></h4>
+<% end %>

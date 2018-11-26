@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add a gossip</title>
+</head>
+
+<body>
+  <style type="text/css">
+    body, a {
+      background-color: #424242;
+      color: white;
+    }
+  </style>
+  
+  <h1>Add a new gossip</h1>
+  <form action="/gossips/new/" method="POST">
+    <p>Your name: <input type="text" name="gossip_author"><br />
+    Your gossip: <input type="text" name="gossip_content"><br />
+    <input type="submit"></p>
+  </form>
+  <a href="/">CLICK HERE TO GO BACK TO INDEX</a>
+</body>
+</html>
